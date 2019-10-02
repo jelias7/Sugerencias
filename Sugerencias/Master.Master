@@ -11,6 +11,42 @@
     <script src="/Scripts/popper.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
     <script src="/Scripts/toastr.min.js"></script>
+
+     <script type="text/javascript">
+        function Notify(msg, title, type, clear, pos, sticky) {
+            if (clear == true) {
+                toastr.clear();
+            }
+            if (sticky == true) {
+                toastr.tapToDismiss = true;
+                toastr.timeOut = 10000;
+            }
+
+            toastr.options.onclick = function () {
+                //alert('You can perform some custom action after a toast goes away'); 
+            }
+            //"toast-top-left"; 
+            toastr.options.positionClass = pos;
+            if (type.toLowerCase() == 'info') {
+                toastr.options.timeOut = 1000;
+                toastr.tapToDismiss = true;
+                toastr.info(msg, title);
+            }
+            if (type.toLowerCase() == 'success') {
+                toastr.options.timeOut = 1500;
+                toastr.success(msg, title);
+            }
+            if (type.toLowerCase() == 'warning') {
+                toastr.options.timeOut = 3000;
+                toastr.warning(msg, title);
+            }
+            if (type.toLowerCase() == 'error') {
+                toastr.options.timeOut = 10000;
+                toastr.error(msg, title);
+            }
+        }
+     </script>
+
     <title></title>
 </head>
 <body>
